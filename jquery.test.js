@@ -89,3 +89,14 @@ it('index.js al dar doble click en un li se asigna la clase "strike" y 500ms des
   expect($('ol').children().length).toBe(children - 1);
   expect($('li:last-child').text()).not.toBe('a eliminar');
 });
+
+it('index.js al presionar el div id="button" se guarda el valor del input en la variable global window.listaCompras y en el almacenamiento local | Asegúrate que al presionar el div id="button" se guarde el valor del input en la variable global window.listaCompras y en el almacenamiento local bajo la llave "listaCompras"', () => {
+  $('input[type="text"]').val('5');
+
+  let e = $.Event('keyup');
+  e.keyCode = 13;
+  $('input[type="text"]').trigger(e);
+
+  expect(window.listaCompras.includes('5')).toBe(true);
+  expect(window.localStorage.getItem('listaCompras').includes('5')).toBe(true);
+});
