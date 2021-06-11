@@ -3,7 +3,6 @@ const $ = require('jquery');
 import Timeout from 'await-timeout';
 
 beforeAll(() => {
-  // Set up our document body
   document.body.innerHTML = `
   <div class="container">
     <h2>Bienvenido al curso de jQuery</h2>
